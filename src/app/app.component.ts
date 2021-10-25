@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
+//TODO was
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',

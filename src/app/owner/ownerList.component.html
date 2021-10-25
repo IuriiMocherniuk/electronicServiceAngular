@@ -1,0 +1,18 @@
+<div class = "container">
+  <table class = "table table-striped table-bordered">
+    <tr style = "background: lightblue;">
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+    <tr *ngFor = "let owner of owners">
+      <td>{{owner.id}}</td>
+      <td>{{owner.firstName}}</td>
+      <td>{{owner.lastName}}</td>
+
+    </tr>
+    <tr *ngIf = "owners && owners.length == 0">
+      <td colspan = "3">No records found!</td>
+    </tr>
+  </table>
+</div>
