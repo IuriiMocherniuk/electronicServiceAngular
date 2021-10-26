@@ -28,9 +28,11 @@ export class OwnerComponent implements OnInit{
     this.owners = value;
   }
 
-  //TODO check undefined is correct or use getter and setter?
-  // private _owners: Owner[];
-  // private _statusMessage: string;
+  selectedOwner?: Owner;
+  onSelect(owner: Owner): void {
+    this.selectedOwner = owner;
+  }
+
  owner = new Owner();
 
   constructor(private _ownerService: OwnerService,
@@ -39,7 +41,7 @@ export class OwnerComponent implements OnInit{
 
   ngOnInit(): void {
     console.log("OwnerComponents")
-    //this.getOwners();
+    // this.getOwners();
   }
 
   getOwners(): void{
@@ -52,27 +54,6 @@ export class OwnerComponent implements OnInit{
       );
 
   }
-
-  // addOwner(): void{
-  //  this._ownerService.addOwner(this.owner)
-  //     .subscribe((response) => {console.log(response); this.getOwners();this.reset();},
-  //       (error:string) =>{
-  //         console.log(error);
-  //         this.statusMessage = "Problem with service. Please try again later!";
-  //       }
-  //     );
-  // // }
-  //
-  // add(name: string): void {
-  //   name = name.trim();
-  //   if (!name) { return; }
-  //   this.heroService.addHero({ name } as Hero)
-  //     .subscribe(hero => {
-  //       this.heroes.push(hero);
-  //     });
-  // }
-
-
 
   addOwner(owner: Owner): void {
     console.log("OwnerComponent. create owner "+JSON.stringify(owner));

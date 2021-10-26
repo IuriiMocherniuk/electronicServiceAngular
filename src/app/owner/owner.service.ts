@@ -42,23 +42,6 @@ export class OwnerService{
       // .map((response: Response) => response.json())
       // .catchError(this.handleError);
   }
-
-  // addOwner(owner: Owner) {
-  //   let body = JSON.parse(JSON.stringify(owner));
-  //   let headers = new HttpHeaders();
-  //   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-  //
-  //   let options = new HttpResponse({headers: headers});
-  //   return this._httpService.post(this.url + "/add", body, options);
-  // }
-
-    // addOwner(owner: Owner): Observable<Owner> {
-    //   return this._httpService.post<Owner>(this.url, owner, httpOptions)
-    //     // .pipe(
-    //     //   catchError(this.handleError('addOwner', owner))
-    //     // );
-    // }
-
   addOwner(owner: Owner): Observable<Owner> {
     let body = JSON.stringify(owner)
     console.log("OwnerService. create owner " + body);

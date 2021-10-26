@@ -21,6 +21,7 @@ import { OwnerComponent } from './owner/owner.component';
 import { OwnerListComponent } from './owner/ownerList.component';
 import { PageNotFoundComponent } from './others/pageNotFound.component';
 import { HomeComponent } from './owner/home.component';
+// import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
 
 //----------------------------------------
 //TODO HomeComponentTwo test
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent, OwnerComponent,OwnerListComponent,HomeComponent,PageNotFoundComponent
-    // AppChildComponent
+    // AppChildComponent, OwnerDetailComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,RouterModule.forRoot(appRoutes)
