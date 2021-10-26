@@ -45,8 +45,6 @@ export class OwnerService{
   addOwner(owner: Owner): Observable<Owner> {
     let body = JSON.stringify(owner)
     console.log("OwnerService. create owner " + body);
-
-
     return this._httpService.post<Owner>(this.url+'/add', body , this.httpOptions).pipe(
       tap((newOwner: Owner) => this.log(`added owner w/ id=${newOwner.id}`)),
       catchError(this.handleError<Owner>('addOwner'))

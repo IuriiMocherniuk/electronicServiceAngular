@@ -1,9 +1,9 @@
 export class Owner{
 
-  id: string | undefined ;
- firstName: string | undefined ;
-  lastName: string | undefined ;
-  password:string | undefined;
+  id: string | undefined;
+  firstName?: string;
+  lastName?: string;
+  password?:string;
 
   constructor(){
   }
