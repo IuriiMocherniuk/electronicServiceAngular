@@ -1,17 +1,35 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHandler, HttpResponse, HttpRequest, HttpHeaders} from '@angular/common/http';
-//Http, Response, Headers, RequestOptions
-import { Observable, throwError } from 'rxjs';
+import {HttpClient, HttpHandler, HttpResponse, HttpRequest, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import {Observable, of, throwError} from 'rxjs';
+
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Owner } from './owner';
 
 
+import { MessageService } from './message.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    Authorization: 'my-auth-token'
+  })
+};
+
 @Injectable()
 export class OwnerService{
+  private log(message: string) {
+    this.messageService.add(`HeroService: ${message}`);
+  }
 
-url:string = "http://localhost:8080/Gradle___com_softserve_academy___electronicService_1_0_SNAPSHOT_war/owner";
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
-  constructor(private _httpService: HttpClient){}
+ url = 'http://localhost:8080/Gradle___com_softserve_academy___electronicService_1_0_SNAPSHOT_war/owner';
+
+  constructor(private _httpService: HttpClient,
+  private messageService: MessageService){}
 
   getAllOwners(): Observable<Owner[]>{
     return this._httpService.get<Owner[]>(this.url);
@@ -20,32 +38,55 @@ url:string = "http://localhost:8080/Gradle___com_softserve_academy___electronicS
   }
 
   getOwnerById(ownerId: string): Observable<Owner>{
-    return this._httpService.get<Owner>(this.url +"/"+ownerId);
+    return this._httpService.get<Owner>(this.url +'/'+ownerId);
       // .map((response: Response) => response.json())
       // .catchError(this.handleError);
   }
 
-  addOwner(owner: Owner){
-    let body = JSON.parse(JSON.stringify(owner));
-    let headers = new HttpHeaders();
-    headers = headers.set( 'Content-Type', 'application/json; charset=utf-8');
+  // addOwner(owner: Owner) {
+  //   let body = JSON.parse(JSON.stringify(owner));
+  //   let headers = new HttpHeaders();
+  //   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+  //
+  //   let options = new HttpResponse({headers: headers});
+  //   return this._httpService.post(this.url + "/add", body, options);
+  // }
 
-    let options = new HttpResponse({headers:headers});
+    // addOwner(owner: Owner): Observable<Owner> {
+    //   return this._httpService.post<Owner>(this.url, owner, httpOptions)
+    //     // .pipe(
+    //     //   catchError(this.handleError('addOwner', owner))
+    //     // );
+    // }
 
-    //TODO CHECK let options = new HttpResponse({ headers: headers })
-    // let options = new HttpResponse({ headers: headers });
-    if(owner.id){
-      return this._httpService.put(this.url +"/"+owner.id, body, options);
-    }else{
-      return this._httpService.post(this.url +"/add" , body, options);
-    }
+  addOwner(owner: Owner): Observable<Owner> {
+    let body = JSON.stringify(owner)
+    console.log("OwnerService. create owner " + body);
+
+
+    return this._httpService.post<Owner>(this.url+'/add', body , this.httpOptions).pipe(
+      tap((newOwner: Owner) => this.log(`added owner w/ id=${newOwner.id}`)),
+      catchError(this.handleError<Owner>('addOwner'))
+    );
   }
 
   deleteOwner(ownerId: string){
-    return this._httpService.delete(this.url+"/" + ownerId);
+    return this._httpService.delete(this.url+'/' + ownerId);
   }
 
-  private static handleError(error: Response){
-    return Observable.throw (error);
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
+
+
 }

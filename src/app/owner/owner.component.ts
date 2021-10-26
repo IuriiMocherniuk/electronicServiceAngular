@@ -1,27 +1,45 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {OwnerService} from './owner.service';
 import {Owner} from './owner';
 
 @Component({
   selector: 'app-owner',
-  // TODO app-owner is it name of project?
-  templateUrl: './owner.component.html',
-  styleUrls: ['./owner.component.css']
+ templateUrl: "./owner.component.html",
+  styleUrls: ['./owner.component.css'],
+ // template: `<h1>This is Test component New!</h1>`
+
 })
 export class OwnerComponent implements OnInit{
 
-  //TODO check undefined is correct?
-  owners: Owner[] | undefined;
-  statusMessage: string | undefined;
-  owner = new Owner();
+
+  get statusMessage(): string {
+    return this.statusMessage;
+  }
+
+  set statusMessage(value: string) {
+    this.statusMessage = value;
+  }
+  get owners(): Owner[] {
+    return this.owners;
+  }
+
+  set owners(value: Owner[]) {
+    this.owners = value;
+  }
+
+  //TODO check undefined is correct or use getter and setter?
+  // private _owners: Owner[];
+  // private _statusMessage: string;
+ owner = new Owner();
 
   constructor(private _ownerService: OwnerService,
-              private _router: Router){}
+              private _router: Router
+              ){}
 
   ngOnInit(): void {
     console.log("OwnerComponents")
-    this.getOwners();
+    //this.getOwners();
   }
 
   getOwners(): void{
@@ -35,21 +53,41 @@ export class OwnerComponent implements OnInit{
 
   }
 
-  addOwner(): void{
   // addOwner(): void{
-    this._ownerService.addOwner(this.owner)
-      .subscribe((response) => {console.log(response); this.getOwners();this.reset();},
-        (error:string) =>{
-          console.log(error);
-          this.statusMessage = "Problem with service. Please try again later!";
-        }
-      );
+  //  this._ownerService.addOwner(this.owner)
+  //     .subscribe((response) => {console.log(response); this.getOwners();this.reset();},
+  //       (error:string) =>{
+  //         console.log(error);
+  //         this.statusMessage = "Problem with service. Please try again later!";
+  //       }
+  //     );
+  // // }
+  //
+  // add(name: string): void {
+  //   name = name.trim();
+  //   if (!name) { return; }
+  //   this.heroService.addHero({ name } as Hero)
+  //     .subscribe(hero => {
+  //       this.heroes.push(hero);
+  //     });
+  // }
+
+
+
+  addOwner(owner: Owner): void {
+    console.log("OwnerComponent. create owner "+JSON.stringify(owner));
+    if (!owner) { return; }
+    this._ownerService.addOwner(owner)
+      .subscribe(owner => {
+         this.owners.push(owner);
+      });
   }
 
   private reset(){
-    this.owner.id == null;
-    this.owner.firstName == null;
-    this.owner.lastName == null;
+   // this.owner.id = "";
+    this.owner.firstName = "";
+    this.owner.lastName = "";
+    this.owner.password = "";
   }
 
   deleteOwner(ownerId: string){

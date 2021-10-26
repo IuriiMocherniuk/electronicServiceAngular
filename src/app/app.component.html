@@ -1,15 +1,22 @@
-<div style="padding:5px">
-  <ul class="nav nav-tabs">
-    <li routerLinkActive="active">
-      <a routerLink="home">Home</a>
-    </li>
-    <li routerLinkActive="active">
-      <a routerLink="add-owner">Add Owner</a>
-    </li>
-    <li routerLinkActive="active">
-      <a routerLink="owners">List of Owners</a>
-    </li>
-  </ul>
-  <br/>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<!--<h1>Верхняя навигация</h1>-->
+
+<div class="topnav">
+  <a routerLink="home">Home</a>
+  <a routerLink="add-owner">Create Owner</a>
+  <a routerLink="owners">List of Owners</a>
+</div>
+
+<div style="padding-left:16px">
+
   <router-outlet></router-outlet>
 </div>
+
+</body>
+</html>

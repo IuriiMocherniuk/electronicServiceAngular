@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { OwnerService } from './owner.service';
 import { Owner } from './owner';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'owner-list2',
+  selector: 'owner-list',
   templateUrl: './ownerList.component.html',
   styleUrls: ['./ownerList.component.css']
 })

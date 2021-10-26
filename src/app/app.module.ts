@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //----------------------------------------
 
-import { HttpClientModule } from '@angular/common/http'; // HttpModule --> HttpClientModule | @angular/http --> @angular/common/http
+import { HttpClientModule } from '@angular/common/http';
+// HttpModule --> HttpClientModule | @angular/http --> @angular/common/http
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -22,7 +23,7 @@ import { PageNotFoundComponent } from './others/pageNotFound.component';
 import { HomeComponent } from './owner/home.component';
 
 //----------------------------------------
-
+//TODO HomeComponentTwo test
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'owners', component: OwnerListComponent },
@@ -34,10 +35,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent, OwnerComponent,OwnerListComponent,HomeComponent,PageNotFoundComponent
-    // AppComponent, OwnerComponent,AppChildComponent,OwnerListComponent,HomeComponent,PageNotFoundComponent
+    // AppChildComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule,RouterModule.forRoot(appRoutes)
+    // BrowserModule, HttpClientModule, FormsModule,RouterModule
   ],
   providers: [OwnerService],
   bootstrap: [AppComponent]
