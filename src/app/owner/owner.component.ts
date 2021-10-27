@@ -72,7 +72,7 @@ export class OwnerComponent implements OnInit{
   }
 
   deleteOwner(ownerId: string){
-    console.log("Inside the deleteBook()::::Book id::::"+ownerId);
+    console.log("Inside the delete Owner()::::Owner id::::"+ownerId);
     this._ownerService.deleteOwner(ownerId)
       .subscribe((response) => {console.log(response); this.getOwners();},
         (error:String) =>{

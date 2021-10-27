@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Owner } from './owner';
 
 
-import { MessageService } from './message.service';
+import { MessageService } from '../others/message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,7 +19,7 @@ const httpOptions = {
 @Injectable()
 export class OwnerService{
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`OwnerService: ${message}`);
   }
 
   httpOptions = {
@@ -29,21 +29,23 @@ export class OwnerService{
  url = 'http://localhost:8080/Gradle___com_softserve_academy___electronicService_1_0_SNAPSHOT_war/owner';
 
   constructor(private _httpService: HttpClient,
-  private messageService: MessageService){}
+              private messageService: MessageService){}
 
   getAllOwners(): Observable<Owner[]>{
-    return this._httpService.get<Owner[]>(this.url);
-      // .map((owners:Owner[]) => response.json())
-      // .catch(this.handleError);
+    return this._httpService.get<Owner[]>(this.url).pipe(
+      tap(_ => this.log('fetched owners')),
+      catchError(this.handleError<Owner[]>('getOwners',[]))
+    );
   }
 
   getOwnerById(ownerId: string): Observable<Owner>{
-    return this._httpService.get<Owner>(this.url +'/'+ownerId);
-      // .map((response: Response) => response.json())
-      // .catchError(this.handleError);
+    return this._httpService.get<Owner>(this.url +'/'+ownerId).pipe(
+      tap(_ => this.log(`fetched owner id=${ownerId}`)),
+      catchError(this.handleError<Owner>(`getOwner id=${ownerId}`))
+    );
   }
   addOwner(owner: Owner): Observable<Owner> {
-    let body = JSON.stringify(owner)
+    let body = JSON.stringify(owner);
     console.log("OwnerService. create owner " + body);
     return this._httpService.post<Owner>(this.url+'/add', body , this.httpOptions).pipe(
       tap((newOwner: Owner) => this.log(`added owner w/ id=${newOwner.id}`)),
@@ -52,7 +54,17 @@ export class OwnerService{
   }
 
   deleteOwner(ownerId: string){
-    return this._httpService.delete(this.url+'/' + ownerId);
+    return this._httpService.delete(this.url+'/' + ownerId).pipe(
+      tap(_ => this.log(`deleted owner id=${ownerId}`)),
+      catchError(this.handleError<Owner>('delete Owner'))
+    );
+  }
+
+  updateOwner(owner: Owner): Observable<any> {
+    return this._httpService.put(this.url + `/${owner.id}`, owner, this.httpOptions).pipe(
+      tap(_ => this.log(`updated owner id=${owner.id}`)),
+      catchError(this.handleError<any>('updateOwner'))
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

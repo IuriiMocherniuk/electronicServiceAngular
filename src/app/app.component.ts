@@ -1,5 +1,3 @@
-// import { Component } from '@angular/core';
-//TODO was
 import { Component, OnInit } from '@angular/core';
 
 @Component({

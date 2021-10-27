@@ -1,0 +1,60 @@
+/* CSS for Table */
+h1{
+  font-weight: bold;
+  color: blue;
+
+
+}
+
+.table{
+  border: 1px solid #b8b5b5;
+  table-layout: revert;
+  width: 60%;
+  margin-bottom: 20px;
+  counter-reset: schetchik;  /* счётчик с названием "schetchik" работает в рамках класса .demotable */
+
+}
+
+.table tr {
+  counter-increment: schetchik;  /* при встрече тега tr счётчик с названием "schetchik" увеличивается на единицу */
+  padding: 5px;
+  background: rgb(224, 221, 221);
+  border: 1px solid #000000;
+  text-align: center;
+  vertical-align: middle;
+
+
+}
+.table tr:before {
+  content: counter(schetchik);  /* значение счётчика с названием "schetchik" записывается в первую клетку строки */
+  vertical-align: middle;
+}
+
+
+.table th {
+  font-weight: bold;
+  padding: 5px;
+  background: #7e9c50;
+  vertical-align: middle;
+  horiz-align: center;
+}
+.table td {
+  text-align: center;
+  padding: 5px 10px;
+  vertical-align: middle
+}
+
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  /*appearance: button;*/
+
+  text-decoration: none;
+  color: initial;
+}
+
+
+
+
+
+
