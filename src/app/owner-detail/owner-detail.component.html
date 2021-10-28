@@ -1,26 +1,81 @@
-<!--<div *ngIf="owner">-->
+<!--<h1>This is Test owner-detail HTML Page </h1>-->
 
-<!--&lt;!&ndash;  <app-hero-detail [owner]="selectedOwner"></app-hero-detail>&ndash;&gt;-->
 
-<!--  <h2>{{owner.firstName, owner.lastName | uppercase}} Details</h2>-->
+  <h2>{{owner!.firstName}} Details</h2>
 
-<!--  <div><span>id: </span>{{owner.id}}</div>-->
-<!--  <div>-->
-<!--    <label>firstName:-->
-<!--      <input [(ngModel)]="owner.firstName" placeholder="firstName"/>-->
-<!--    </label>-->
-<!--    <label>lastName:-->
-<!--      <input [(ngModel)]="owner.lastName" placeholder="lastName"/>-->
-<!--    </label>-->
-<!--  </div>-->
-<!--<table>-->
-<!--  <td>-->
-<!--    <div class="form-group">-->
-<!--    <button (click) = "getOwner(owner.id)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">get</span></button>-->
-<!--    &nbsp;|&nbsp;-->
-<!--    <button (click) = "deleteOwner(owner.id)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>-->
-<!--    </div>-->
-<!--  </td>-->
-<!--</table>-->
+<table   class="table1">
+  <thead>
 
-<!--</div>-->
+  <th>Id</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Actions</th>
+
+  </thead>
+  <tr>
+
+    <td >{{owner!.id}}</td>
+    <td>{{owner!.firstName}}</td>
+    <td>{{owner!.lastName}}</td>
+    <td>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+
+          <button onclick="location.href='/add-device'" type="button">Add Device</button>
+<!--          <button (click) = "getOwner(owner.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">detail</span></button>-->
+<!--          &nbsp;|&nbsp;-->
+<!--          <button (click) = "deleteOwner(owner.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>-->
+
+        </div>
+      </div>
+    </td>
+  </tr>
+
+</table>
+
+
+
+
+
+
+
+<h2>{{owner!.firstName}}'s Devices</h2>
+<div class = "container">
+  <table   class="table">
+    <thead>
+
+    <th>№</th>
+    <th>Type</th>
+    <th>Name</th>
+    <th>Code</th>
+<!--    <th>Owner</th>-->
+    <th>Status</th>
+    <th>Actions</th>
+
+    </thead>
+    <tr *ngFor = "let device of owner!.devices">
+
+      <!--      <td >{{owner.id}}</td>-->
+      <td>{{device.type}}</td>
+      <td>{{device.name}}</td>
+      <td>{{device.code}}</td>
+<!--      <td>{{device.owner!.firstName +" "+ device.owner!.lastName}}</td>-->
+      <td>{{device.status}}</td>
+      <td>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+<!--            <button (click) = "getDevice(device.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">detail</span></button>-->
+<!--            &nbsp;|&nbsp;-->
+            <button (click) = "deleteDevice(device.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf = "owner!.devices && owner!.devices!.length == 0">
+      <td colspan = "5">No records found!</td>
+    </tr>
+  </table>
+</div>
+
+

@@ -9,7 +9,7 @@ h1{
 .table{
   border: 1px solid #b8b5b5;
   table-layout: revert;
-  width: 60%;
+  width: 80%;
   margin-bottom: 20px;
   counter-reset: schetchik;  /* счётчик с названием "schetchik" работает в рамках класса .demotable */
 

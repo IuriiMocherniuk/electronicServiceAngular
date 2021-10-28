@@ -1,7 +1,6 @@
 <h1 xmlns="http://www.w3.org/1999/html"> List of Owners</h1>
-
 <div>
-  <button onclick="location.href='http://localhost:4200/add-owner'" type="button">
+  <button onclick="location.href='/add-owner'" type="button">
     Create Owner</button>
 </div>
 <br/>
@@ -23,6 +22,7 @@
       <td>
         <div class="form-group">
         <div class="col-sm-offset-2 col-sm-8">
+
          <button (click) = "getOwner(owner.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">detail</span></button>
         &nbsp;|&nbsp;
         <button (click) = "deleteOwner(owner.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>
@@ -35,6 +35,7 @@
       <td colspan = "3">No records found!</td>
     </tr>
   </table>
+
 </div>
 
 

@@ -10,6 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./ownerList.component.css']
 })
 export class OwnerListComponent implements OnInit{
+
+  selectedOwner?: Owner;
+  onSelect(owner: Owner): void {
+    this.selectedOwner = owner;
+  }
+
   owner = new Owner();
   statusMessage?: string;
   owners?: Owner[];
@@ -45,12 +51,14 @@ export class OwnerListComponent implements OnInit{
   }
 
   getOwner(ownerId: string){
-    this._ownerService.getOwnerById(ownerId)
-      .subscribe((ownerData) => {this.owner = ownerData; this.getOwners(); }),
-      (error:String) => {
-        console.log(error);
-        this.statusMessage = "Problem with service. Please try again later!";
-      }
+    // this._ownerService.getOwnerById(ownerId)
+    //   .subscribe((ownerData) => {this.owner = ownerData; this.getOwners(); }),
+    //   (error:String) => {
+    //     console.log(error);
+    //     this.statusMessage = "Problem with service. Please try again later!";
+    //   }
+    console.log("Owner list get owner " + ownerId);
+    this._router.navigate(['owner-detail/'+ownerId])
    }
 
 }

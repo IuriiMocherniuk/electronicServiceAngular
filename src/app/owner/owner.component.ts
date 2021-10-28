@@ -62,6 +62,17 @@ export class OwnerComponent implements OnInit{
       .subscribe(owner => {
          this.owners.push(owner);
       });
+    this._router.navigate(['/owners'])
+  }
+
+  updateOwner( owner: Owner): void {
+    console.log("OwnerComponent. update owner "+JSON.stringify(owner));
+    if (!owner) { return; }
+    this._ownerService.updateOwner(owner)
+      .subscribe(owner => {
+        this.owners.push(owner);
+      });
+    // this._router.navigate(['/owners'])
   }
 
   private reset(){
