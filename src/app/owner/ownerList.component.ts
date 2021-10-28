@@ -50,15 +50,9 @@ export class OwnerListComponent implements OnInit{
     console.log("end of deleteOwner():::::::");
   }
 
-  getOwner(ownerId: string){
-    // this._ownerService.getOwnerById(ownerId)
-    //   .subscribe((ownerData) => {this.owner = ownerData; this.getOwners(); }),
-    //   (error:String) => {
-    //     console.log(error);
-    //     this.statusMessage = "Problem with service. Please try again later!";
-    //   }
-    console.log("Owner list get owner " + ownerId);
-    this._router.navigate(['owner-detail/'+ownerId])
-   }
+  redirect(path: string) {
+    console.log("redirect to " + path);
+    this._router.navigate([path]);
 
+  }
 }
