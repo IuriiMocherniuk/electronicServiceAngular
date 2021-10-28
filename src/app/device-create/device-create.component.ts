@@ -75,7 +75,7 @@ export class DeviceCreateComponent implements OnInit {
     this._router.navigate(['owner-detail/'+ this.owner!.id]);
 
 
-      window.location.reload();
+      // window.location.reload();
   }
 
 

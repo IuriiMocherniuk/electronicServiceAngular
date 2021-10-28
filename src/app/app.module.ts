@@ -33,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'add-owner', component: OwnerComponent },
   { path: 'devices', component: DeviceListComponent },
   { path: 'add-device/:id', component: DeviceCreateComponent },
+  { path: 'update-owner/:id', component: OwnerUpdateComponent },
   { path: 'owner-detail/:id', component: OwnerDetailComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

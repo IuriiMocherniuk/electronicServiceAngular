@@ -21,10 +21,7 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-8">
 
-<!--          <button onclick="location.href='/add-device'" type="button">Add Device</button>-->
-          <button (click) = "getOwner(owner!.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">Add Device</span></button>
-<!--          &nbsp;|&nbsp;-->
-<!--          <button (click) = "deleteOwner(owner.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>-->
+          <button (click) = "redirect('update-owner/'+ owner!.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">Edit Owner</span></button>
 
         </div>
       </div>
@@ -40,6 +37,11 @@
 
 
 <h2>{{owner!.firstName}}'s Devices</h2>
+
+<button (click) = "redirect('add-device/'+ owner!.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">Add Device</span></button>
+<br/>
+<br/>
+
 <div class = "container">
   <table   class="table">
     <thead>

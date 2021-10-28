@@ -76,4 +76,14 @@ export class OwnerDetailComponent implements OnInit {
     console.log("Owner list get owner " + ownerId);
     this._router.navigate(['add-device/'+ownerId]);
   }
+
+  redirect(path: string) {
+    console.log("redirect to " + path);
+    this._router.navigate([path]);
+
+  }
+
+  redirectDevice(s: string) {
+
+  }
 }
