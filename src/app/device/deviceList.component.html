@@ -24,7 +24,7 @@
       <td>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-8">
-            <button (click) = "getDevice(device.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">detail</span></button>
+            <button (click) = "redirect('update-device/'+ device.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">edit</span></button>
             &nbsp;|&nbsp;
             <button (click) = "deleteDevice(device.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>
 

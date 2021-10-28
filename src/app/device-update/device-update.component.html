@@ -1,4 +1,4 @@
-<h1> Create Device for {{owner!.firstName}} {{owner!.lastName}} </h1>
+<h2> Update Device ID {{device!.id!}} TYPE "{{device!.type}}" NAME "{{device!.name}}"  </h2>
 <div class="container">
   <div >
     <form class="form-horizontal">
@@ -15,30 +15,30 @@
       <div class="form-group">
         <label class="control-label col-sm-2">Name</label>
         <div class="col-sm-8">
-          <input type = "text" [(ngModel)] = "device.name" name = "name" class="form-control" />
+          <input type = "text" [(ngModel)] = "device!.name" name = "name" class="form-control" />
         </div>
       </div>
       <br/>
       <div class="form-group">
         <label class="control-label col-sm-2">Code</label>
         <div class="col-sm-8">
-          <input type = "text" [(ngModel)] = "device.code" name = "code" class="form-control" />
+          <input type = "text" [(ngModel)] = "device!.code" name = "code" class="form-control" />
         </div>
       </div>
-<!--      <br/>-->
-<!--           <div class="form-group">-->
-<!--        <label class="control-label col-sm-2">Owner</label>-->
-<!--        <div class="col-sm-8">-->
+      <!--      <br/>-->
+      <!--           <div class="form-group">-->
+      <!--        <label class="control-label col-sm-2">Owner</label>-->
+      <!--        <div class="col-sm-8">-->
 
-<!--      <input type = "text" [(ngModel)] = "device.ownerId" name = "ownerId" value= "{{owner!.id}}" class="form-control" />-->
+      <!--      <input type = "text" [(ngModel)] = "device.ownerId" name = "ownerId" value= "{{owner!.id}}" class="form-control" />-->
 
-<!--        </div>-->
-<!--      </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
       <br/>
       <div class="form-group">
         <label class="control-label col-sm-2">Status</label>
         <div class="col-sm-8">
-          <select class="form-control" [(ngModel)] = "device.status" name = "status">
+          <select class="form-control" [(ngModel)] = "device!.status" name = "status">
             <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
           </select>
         </div>
@@ -46,7 +46,7 @@
       <div class="form-group">
         <br/>
         <div class="col-sm-offset-2 col-sm-8">
-          <button (click) = "addDevice(device)" class = "btn btn-primary">Create Device</button>
+          <button (click) = "updateDevice(device!)" class = "btn btn-primary">Update Device</button>
         </div>
       </div>
     </form>

@@ -54,5 +54,10 @@ export class DeviceListComponent implements OnInit{
         this.statusMessage = "Problem with service. Please try again later!";
       }
   }
+  redirect(path: string) {
+    console.log("redirect to " + path);
+    this._router.navigate([path]);
+
+  }
 
 }

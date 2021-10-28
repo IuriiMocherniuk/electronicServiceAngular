@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   selector: 'app-device-create',
   templateUrl: './device-create.component.html',
   styleUrls: ['./device-create.component.css']
-  // template: `<h1>This is Test owner-detail Page!</h1>`
 })
+
 export class DeviceCreateComponent implements OnInit {
 
 
@@ -37,7 +37,8 @@ export class DeviceCreateComponent implements OnInit {
   @Input()
   owner?: Owner;
 
-  statuses:string[] =["used","damages","lost"];
+  statuses:string[] =["used","damages","lost","stolen"];
+  types:string[] =["PC","Phone","Laptop","Smartphone",];
 
   device = new Device();
 
