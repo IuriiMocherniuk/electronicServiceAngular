@@ -42,7 +42,7 @@ export class DeviceService{
   }
   addDevice(device: Device): Observable<Device> {
     let body = JSON.stringify(device)
-    console.log("OwnerService. create device " + body);
+    console.log("DeviceService. create device " + body);
     return this._httpService.post<Device>(this.url+'/add', body , this.httpOptions).pipe(
       tap((newDevice: Device) => this.log(`added device w/ id=${newDevice.id}`)),
       catchError(this.handleError<Device>('addDevice'))

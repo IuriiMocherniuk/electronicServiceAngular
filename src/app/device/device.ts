@@ -10,6 +10,11 @@ export class Device{
   status:string | undefined;
   owner:Owner| undefined;
 
+
+  // set owner(value: Owner | undefined) {
+  //   this._owner = value;
+  // }
+
   constructor(){
   }
 }

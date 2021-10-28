@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Owner} from "../owner/owner";
-// import {OwnerComponent} from "../owner/owner.component";
 import {OwnerService} from "../owner/owner.service";
-// import {OwnerListComponent} from "../owner/ownerList.component";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DeviceService} from "../device/device.service";
+import {Device} from "../device/device";
+import {Observable} from "rxjs";
+import {catchError, tap} from "rxjs/operators";
 
 
 @Component({
@@ -20,29 +21,14 @@ export class OwnerDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private _ownerService: OwnerService,
     private _deviceService: DeviceService,
-    // private location: Location,
+    private _router: Router
+
   ) {
   }
 
   //
   @Input()
   owner?: Owner;
-  //
-  // @Input()
-  // owners?: Owner[];
-  //
-
-  // @Input()
-  // ownerComponent?: OwnerComponent;
-  //
-  // @Input()
-  // ownerListComponent?: OwnerListComponent;
-  //
-  // selectedOwner?: Owner;
-
-  // onSelect(owner: Owner): void {
-  //   this.selectedOwner = owner;
-  // }
 
   ngOnInit(): void {
     this.owner;
@@ -62,28 +48,32 @@ export class OwnerDetailComponent implements OnInit {
         // this.statusMessage = "Problem with service. Please try again later!";
       }
     console.log("OwnerdetailComponent.  onInit, owner = "+ JSON.stringify(this.owner));
+
   }
 
-  // update(owner: Owner) {
-  //   console.log("OwnerComponent. update owner " + JSON.stringify(owner));
-  //   if (!owner) {
-  //     return;
-  //   }
-  //   this._ownerService!.updateOwner(owner)
-  //     .subscribe(owner => {
-  //       this.owners!.push(owner);
-  //     });
-  //   // this._router.navigate(['/owners'])
-  //
-  // }
   deleteDevice(deviceId: string){
     console.log("Inside the deleteOwner()::::Owner id::::"+deviceId);
     this._deviceService.deleteDevice(deviceId)
-      .subscribe((response) => {console.log(response)},
+      .subscribe((response) => {  },
         (error:String) =>{
           console.log(error);
           // this.statusMessage = "Problem with service. Please try again later!";
         });
     console.log("end of deleteDevice():::::::");
+
+    // this._router.navigate(['owner-detail/'+ this.owner!.id]);
+    window.location.reload();
+  }
+
+
+  getOwner(ownerId: string){
+    // this._ownerService.getOwnerById(ownerId)
+    //   .subscribe((ownerData) => {this.owner = ownerData; this.getOwners(); }),
+    //   (error:String) => {
+    //     console.log(error);
+    //     this.statusMessage = "Problem with service. Please try again later!";
+    //   }
+    console.log("Owner list get owner " + ownerId);
+    this._router.navigate(['add-device/'+ownerId]);
   }
 }

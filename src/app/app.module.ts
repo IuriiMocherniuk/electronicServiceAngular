@@ -22,6 +22,8 @@ import { DeviceListComponent } from './device/deviceList.component';
 import { PageNotFoundComponent } from './others/pageNotFound.component';
 import { HomeComponent } from './others/home.component';
 import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
+import { DeviceCreateComponent } from './device-create/device-create.component';
+import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 
 //----------------------------------------
 //TODO HomeComponentTwo test
@@ -30,15 +32,16 @@ const appRoutes: Routes = [
   { path: 'owners', component: OwnerListComponent },
   { path: 'add-owner', component: OwnerComponent },
   { path: 'devices', component: DeviceListComponent },
-  { path: 'add-device', component: DeviceComponent },
+  { path: 'add-device/:id', component: DeviceCreateComponent },
   { path: 'owner-detail/:id', component: OwnerDetailComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({
   declarations: [
-    AppComponent, OwnerComponent,OwnerListComponent,HomeComponent,PageNotFoundComponent, DeviceComponent, DeviceListComponent,OwnerDetailComponent
+    AppComponent, OwnerComponent,OwnerListComponent,HomeComponent,PageNotFoundComponent, DeviceComponent, DeviceListComponent,OwnerDetailComponent, DeviceCreateComponent, OwnerUpdateComponent,
     // AppChildComponent,
   ],
   imports: [
