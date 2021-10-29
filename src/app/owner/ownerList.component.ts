@@ -11,14 +11,10 @@ import { Router } from '@angular/router';
 })
 export class OwnerListComponent implements OnInit{
 
-  selectedOwner?: Owner;
-  onSelect(owner: Owner): void {
-    this.selectedOwner = owner;
-  }
-
   owner = new Owner();
   statusMessage?: string;
   owners?: Owner[];
+
   constructor(private _ownerService: OwnerService,
               private _router: Router){}
 
