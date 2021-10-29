@@ -25,15 +25,18 @@
           <input type = "text" [(ngModel)] = "device!.code" name = "code" class="form-control" />
         </div>
       </div>
-      <!--      <br/>-->
-      <!--           <div class="form-group">-->
-      <!--        <label class="control-label col-sm-2">Owner</label>-->
-      <!--        <div class="col-sm-8">-->
+            <br/>
+                 <div class="form-group">
+              <label class="control-label col-sm-2">Owner</label>
+              <div class="col-sm-8">
 
-      <!--      <input type = "text" [(ngModel)] = "device.ownerId" name = "ownerId" value= "{{owner!.id}}" class="form-control" />-->
+                <select class="form-control" [(ngModel)] = "device!.owner" name = "owner">
+                  <option *ngFor="let owner of owners" [value]="owner.id">{{owner.firstName}}</option>
+<!--            <input type = "text" [(ngModel)] = "device!.owner" name = "owner" value= "{{owner!.id}}" class="form-control" />-->
+                </select>
 
-      <!--        </div>-->
-      <!--      </div>-->
+              </div>
+            </div>
       <br/>
       <div class="form-group">
         <label class="control-label col-sm-2">Status</label>

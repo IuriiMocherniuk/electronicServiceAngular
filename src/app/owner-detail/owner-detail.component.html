@@ -30,7 +30,8 @@
 
 <h2>{{owner!.firstName}}'s Devices</h2>
 
-<button (click) = "redirect('add-device/'+ owner!.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">Add Device</span></button>
+<button (click) = "redirect('add-device/'+ owner!.id!)" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-edit">Add Device</span></button>
 <br/>
 <br/>
 
@@ -55,9 +56,11 @@
       <td>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-8">
-            <button (click) = "redirect('update-device/'+ device.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">edit</span></button>
+            <button (click) = "redirect('update-device/'+ device.id!)"  class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-trash">edit</span></button>
             &nbsp;|&nbsp;
-            <button (click) = "deleteDevice(device.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>
+            <button (click) = "deleteDevice(device.id!)"  class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-trash">delete</span></button>
 
           </div>
         </div>
