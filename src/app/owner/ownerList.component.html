@@ -1,4 +1,4 @@
-<h1 xmlns="http://www.w3.org/1999/html"> List of Owners</h1>
+<h1 xmlns="http://www.w3.org/1999/html">Owners</h1>
 <div>
   <button onclick="location.href='/add-owner'" type="button">
     Create Owner</button>
@@ -23,8 +23,9 @@
         <div class="form-group">
         <div class="col-sm-offset-2 col-sm-8">
 
-         <button (click) = "redirect('owner-detail/'+ owner.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">detail</span></button>
+         <button (click) = "redirect('owner-detail/'+ owner.id!)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit">details</span></button>
         &nbsp;|&nbsp;
+
         <button (click) = "deleteOwner(owner.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">delete</span></button>
           &nbsp;|&nbsp;
           <button (click) = "redirect('update-owner/'+ owner!.id!)"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash">edit</span></button>
