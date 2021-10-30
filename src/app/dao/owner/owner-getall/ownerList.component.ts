@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { OwnerService } from './owner.service';
-import { Owner } from './owner';
+import { OwnerService } from '../../../service/owner.service';
+import { Owner } from '../../../model/owner';
 import { Router } from '@angular/router';
 
 

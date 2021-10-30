@@ -1,4 +1,4 @@
-import {Owner} from "../owner/owner";
+import {Owner} from "./owner";
 
 export class Device{
 

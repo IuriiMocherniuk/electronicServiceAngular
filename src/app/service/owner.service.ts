@@ -4,10 +4,10 @@ import {Observable, of, throwError} from 'rxjs';
 
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Owner } from './owner';
+import { Owner } from '../model/owner';
 
 
-import { MessageService } from '../others/message.service';
+import { MessageService } from './message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({

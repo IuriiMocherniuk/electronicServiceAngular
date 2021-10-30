@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
-import {Device} from './device';
-import {MessageService} from '../others/message.service';
+import {Device} from '../model/device';
+import {MessageService} from './message.service';
 
 @Injectable()
 export class DeviceService {

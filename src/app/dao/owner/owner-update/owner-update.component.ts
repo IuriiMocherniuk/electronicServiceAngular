@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Owner} from "../owner/owner";
-import {OwnerService} from "../owner/owner.service";
+import {Owner} from "../../../model/owner";
+import {OwnerService} from "../../../service/owner.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({

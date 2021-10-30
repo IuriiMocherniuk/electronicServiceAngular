@@ -10,18 +10,17 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
 
 //----------------------------------------
-import {OwnerService} from './owner/owner.service';
-import {OwnerComponent} from './owner/owner.component';
-import {OwnerListComponent} from './owner/ownerList.component';
-import {DeviceService} from './device/device.service';
-import {DeviceComponent} from './device/device.component';
-import {DeviceListComponent} from './device/deviceList.component';
+import {OwnerService} from './service/owner.service';
+import {OwnerComponent} from './dao/owner/owner-create/owner.component';
+import {OwnerListComponent} from './dao/owner/owner-getall/ownerList.component';
+import {DeviceService} from './service/device.service';
+import {DeviceListComponent} from './dao/device/device-getall/deviceList.component';
 import {PageNotFoundComponent} from './others/pageNotFound.component';
 import {HomeComponent} from './others/home.component';
-import {OwnerDetailComponent} from './owner-detail/owner-detail.component';
-import {DeviceCreateComponent} from './device-create/device-create.component';
-import {OwnerUpdateComponent} from './owner-update/owner-update.component';
-import {DeviceUpdateComponent} from './device-update/device-update.component';
+import {OwnerDetailComponent} from './dao/owner/owner-details/owner-details.component';
+import {DeviceCreateComponent} from './dao/device/device-create/device-create.component';
+import {OwnerUpdateComponent} from './dao/owner/owner-update/owner-update.component';
+import {DeviceUpdateComponent} from './dao/device/device-update/device-update.component';
 
 //----------------------------------------
 
@@ -41,8 +40,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, OwnerComponent, OwnerListComponent, HomeComponent, PageNotFoundComponent, DeviceComponent,
-    DeviceListComponent, OwnerDetailComponent, DeviceCreateComponent, OwnerUpdateComponent, DeviceUpdateComponent,
+    AppComponent, OwnerComponent, OwnerListComponent, HomeComponent, PageNotFoundComponent, DeviceListComponent,
+    OwnerDetailComponent, DeviceCreateComponent, OwnerUpdateComponent, DeviceUpdateComponent,
 
   ],
   imports: [

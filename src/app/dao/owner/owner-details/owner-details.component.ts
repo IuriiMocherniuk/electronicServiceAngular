@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {Owner} from "../owner/owner";
-import {OwnerService} from "../owner/owner.service";
+import {Owner} from "../../../model/owner";
+import {OwnerService} from "../../../service/owner.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DeviceService} from "../device/device.service";
+import {DeviceService} from "../../../service/device.service";
 
 
 @Component({
   selector: 'app-owner-detail',
-  templateUrl: './owner-detail.component.html',
-  styleUrls: ['./owner-detail.component.css']
+  templateUrl: './owner-details.component.html',
+  styleUrls: ['./owner-details.component.css']
 })
 export class OwnerDetailComponent implements OnInit {
 

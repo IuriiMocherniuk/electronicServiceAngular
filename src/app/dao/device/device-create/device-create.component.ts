@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {OwnerService} from "../owner/owner.service";
-import {DeviceService} from "../device/device.service";
-import {Owner} from "../owner/owner";
-import {Device} from "../device/device";
+import {OwnerService} from "../../../service/owner.service";
+import {DeviceService} from "../../../service/device.service";
+import {Owner} from "../../../model/owner";
+import {Device} from "../../../model/device";
 
 // import {statuses} from "../others/constants"
 

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OwnerDetailComponent } from './owner-detail.component';
+import { OwnerDetailComponent } from './owner-details.component';
 
 describe('OwnerDetailComponent', () => {
   let component: OwnerDetailComponent;

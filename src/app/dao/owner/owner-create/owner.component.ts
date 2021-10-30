@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {OwnerService} from './owner.service';
-import {Owner} from './owner';
+import {OwnerService} from '../../../service/owner.service';
+import {Owner} from '../../../model/owner';
 
 @Component({
   selector: 'app-owner',

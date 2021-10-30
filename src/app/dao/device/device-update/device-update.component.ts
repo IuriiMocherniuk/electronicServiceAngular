@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Device} from "../device/device";
-import {Owner} from "../owner/owner";
-import {DeviceService} from "../device/device.service";
+import {Device} from "../../../model/device";
+import {Owner} from "../../../model/owner";
+import {DeviceService} from "../../../service/device.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from '@angular/common';
 
